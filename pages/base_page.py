@@ -1,4 +1,6 @@
-from selenium.common.exceptions import NoSuchElementException
+import math
+
+from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException
 
 
 class BasePage:
@@ -12,6 +14,7 @@ class BasePage:
         self.browser.get(self.url)
 
     def is_element_present(self, how, what):
+        '''Проверка элемента на странице'''
         try:
             self.browser.find_element(how, what)
         except NoSuchElementException:
