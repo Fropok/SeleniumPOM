@@ -20,6 +20,6 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.open()
     page.add_to_basket()
     page.solve_quiz_and_get_code()
-    page.assert_message_success_basket()
-    page.assert_product_name()
+    page.should_be_success_message()
+    page.assert_product_name_in_success_message()
     page.assert_product_price()
