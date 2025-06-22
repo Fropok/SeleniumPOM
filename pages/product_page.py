@@ -11,8 +11,7 @@ class ProductPage(BasePage):
 
     def should_be_success_message(self):
         '''Проверка, что появилось сообщение об успешном добавлении в корзину'''
-        assert self.is_element_present(
-            *ProductPageLocators.MESSAGE_SUCCESS_ADD_TO_BASKET), \
+        assert self.is_element_present(*ProductPageLocators.MESSAGE_SUCCESS_ADD_TO_BASKET), \
             f'ОШИБКА! Не появилось сообщение об успешном добавлении в корзину'
 
     def should_not_be_success_message(self):
