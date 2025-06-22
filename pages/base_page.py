@@ -18,11 +18,18 @@ class BasePage:
         self.browser.get(self.url)
 
     def go_to_login_page(self):
+        '''Переход на страницу входа'''
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+        '''Проверка элемента входа'''
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'ОШИБКА! Ссылка для входа не отображается'
+
+    def go_to_basket_page(self):
+        '''Переход на страницу корзины'''
+        link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        link.click()
 
     def is_element_present(self, how, what):
         '''Проверка присутствия элемента на странице'''
