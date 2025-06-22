@@ -39,3 +39,12 @@ class ProductPage(BasePage):
         basket_mini_price = self.parse_basket_mini_total(basket_mini_text)
         assert product_price == basket_mini_price, \
             f'ОШИБКА! Ожидаемая сумма в корзине: {product_price}, фактическая: {basket_mini_price}'
+
+    def parse_basket_mini_total(self, text):
+        '''Извлекает сумму из строки мини корзины'''
+        try:
+            line_with_value = text.splitlines()[0]
+            value = line_with_value.split(':', 1)[1].strip()
+            return value
+        except (IndexError, ValueError):
+            return ''
