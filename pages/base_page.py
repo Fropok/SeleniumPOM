@@ -26,6 +26,10 @@ class BasePage:
         '''Проверка элемента входа'''
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'ОШИБКА! Ссылка для входа не отображается'
 
+    def should_be_authorized_user(self):
+        '''Проверка авторизации'''
+        assert self.is_element_present(*BasePageLocators.USER_ICON), 'ОШИБКА! Неавторизованный пользователь'
+
     def go_to_basket_page(self):
         '''Переход на страницу корзины'''
         link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
