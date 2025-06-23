@@ -61,7 +61,7 @@ class BasePage:
         return True
 
     def solve_quiz_and_get_code(self):
-        '''Решить викторину и получить код для успешного добавления в корзину'''
+        '''Решает викторину и получает код для успешного добавления в корзину'''
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
         answer = str(math.log(abs((12 * math.sin(float(x))))))
